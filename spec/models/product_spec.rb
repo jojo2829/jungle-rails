@@ -15,6 +15,7 @@ RSpec.describe Product, type: :model do
         category: @category
       )
       expect(product).to be_valid
+      expect(product.errors.full_messages.length).to eql(0)
     end
 
     it "should be invalid when there's no name" do
@@ -25,6 +26,7 @@ RSpec.describe Product, type: :model do
         category: @category
       )
       expect(product).to be_invalid
+      expect(product.errors.full_messages.length).to eql(1)
     end
 
     it "should be invalid when there's no price" do
@@ -35,6 +37,7 @@ RSpec.describe Product, type: :model do
         category: @category
       )
       expect(product).to be_invalid
+      expect(product.errors.full_messages.length).to eql(3)
     end
 
     it "should be invalid when there's no quantity" do
@@ -45,6 +48,7 @@ RSpec.describe Product, type: :model do
         category: @category
       )
       expect(product).to be_invalid
+      expect(product.errors.full_messages.length).to eql(1)
     end
 
     it "should be invalid when there's no category" do
@@ -55,6 +59,7 @@ RSpec.describe Product, type: :model do
         category: nil
       )
       expect(product).to be_invalid
+      expect(product.errors.full_messages.length).to eql(1)
     end
 
   end
