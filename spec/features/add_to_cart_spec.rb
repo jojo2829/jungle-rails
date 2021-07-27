@@ -24,7 +24,7 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
 
     click_on "My Cart"
 
-    sleep(5)
+    sleep(3)
 
     save_screenshot
 
@@ -34,9 +34,11 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
   scenario "Add to Cart - product increase by one" do
     visit root_path
 
+    expect(page).to have_content "My Cart (0)"
+
     click_on "Add"
 
-    sleep(5)
+    sleep(3)
 
     save_screenshot
 
